@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Update Task</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script>
+      function updateInputType() {
+        const fieldSelect = document.getElementById("field");
+        const newValueInput = document.getElementById("new_value");
+        if (fieldSelect.value === "due_date") {
+          newValueInput.type = "date";
+        } else {
+          newValueInput.type = "text";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-4">Update Task</h1>
+      <a class="btn btn-primary mb-3" href="{{ url_for('index') }}">Home</a>
+      <a class="btn btn-success mb-3" href="{{ url_for('tasks') }}"
+        >View Tasks</a
+      >
+      <form method="post">
+        <div class="form-group">
+          <p>Updating Task: <strong>{{ task[1] }}</strong></p>
+          <label for="field">Field to update:</label>
+          <select
+            class="form-control"
+            id="field"
+            name="field"
+            onchange="updateInputType()"
+            required
+          >
+            <option value="task_name">Task Name</option>
+            <option value="description">Description</option>
+            <option value="due_date">Due Date</option>
+            <option value="status">Status</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="new_value">New Value:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="new_value"
+            name="new_value"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-warning">Update Task</button>
+      </form>
+    </div>
+  </body>
+</html>
