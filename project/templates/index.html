@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ToDo List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron mt-4">
+        <h1 class="display-4">Welcome to the ToDo List App</h1>
+        <p class="lead">Keep track of your tasks easily.</p>
+        <hr class="my-4" />
+        <p>Use the buttons below to manage your tasks.</p>
+        <a
+          class="btn btn-primary btn-lg"
+          href="{{ url_for('tasks') }}"
+          role="button"
+          >View Tasks</a
+        >
+        <a
+          class="btn btn-success btn-lg"
+          href="{{ url_for('add_task') }}"
+          role="button"
+          >Add Task</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
