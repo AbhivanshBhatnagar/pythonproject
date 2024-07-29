@@ -6,9 +6,9 @@ from datetime import datetime
 def connect_db():
     try:
         conn = mysql.connector.connect(
-            host="127.0.0.1",
-            user="testuser ",
-            password="testpassword",
+            host="172.17.0.2",
+            user="root",
+            password="rootpassword",
             database="tasks"
         )
         return conn
